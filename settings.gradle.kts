@@ -15,3 +15,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "RestaurantFinderApp"
 include(":app")
+include(":dashboard:presentation")
+include(":dashboard:data")
+include(":common:utils")
+include(":location:data")
+include(":location:presentation")
+include(":location:domain")
