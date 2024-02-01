@@ -54,6 +54,7 @@ object Libraries {
         const val room = "2.4.0"
         const val lifecycle = "2.2.0"
         const val kotlin = "1.6.0"
+        const val navigation = "2.4.0"
     }
 
     object Retrofit {
@@ -120,4 +121,13 @@ object Libraries {
             "androidx.lifecycle:lifecycle-runtime-ktx:${LibVersions.lifecycle}"
         const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${LibVersions.kotlin}"
     }
+
+    object JetpackNavigation {
+        const val navigationFragmentKtx =
+            "androidx.navigation:navigation-fragment-ktx:${LibVersions.navigation}"
+        const val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${LibVersions.navigation}"
+        const val navigationDynamicFeaturesFragment =
+            "androidx.navigation:navigation-dynamic-features-fragment:${LibVersions.navigation}"
+    }
+
 }

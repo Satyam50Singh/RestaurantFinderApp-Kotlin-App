@@ -52,4 +52,9 @@ dependencies {
     kapt(Libraries.Hilt.hiltCompiler)
     androidTestImplementation(Libraries.Hilt.hiltTesting)
 
+    // Jetpack Navigation
+    implementation(Libraries.JetpackNavigation.navigationFragmentKtx)
+    implementation(Libraries.JetpackNavigation.navigationUiKtx)
+    implementation(Libraries.JetpackNavigation.navigationDynamicFeaturesFragment)
+
 }

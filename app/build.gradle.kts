@@ -115,4 +115,11 @@ dependencies {
     implementation(Libraries.MVVMLibs.lifecycleLiveDataKtx)
     implementation(Libraries.MVVMLibs.lifecycleRuntimeKtx)
     implementation(Libraries.MVVMLibs.kotlinStdlib)
+
+    // Jetpack Navigation
+    implementation(Libraries.JetpackNavigation.navigationFragmentKtx)
+    implementation(Libraries.JetpackNavigation.navigationUiKtx)
+    implementation(Libraries.JetpackNavigation.navigationDynamicFeaturesFragment)
+
+
 }
