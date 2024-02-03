@@ -6,6 +6,7 @@ object Version {
     const val androidTestImplementationJunit = "1.1.5"
     const val espresso = "3.5.1"
     const val composeBom = "2023.08.00"
+    const val navigationCompose = "2.6.0-alpha05"
 }
 
 object Deps {
@@ -19,6 +20,8 @@ object Deps {
     const val material3 = "androidx.compose.material3:material3"
     const val androidMaterial = "com.google.android.material:material:${Version.androidMaterial}"
     const val appCompat = "androidx.appcompat:appcompat:${Version.appCompat}"
+    const val navigationCompose =
+        "androidx.navigation:navigation-compose:${Version.navigationCompose}"
 }
 
 object TestImplementation {
@@ -84,11 +87,14 @@ object Libraries {
         const val dagger = "com.google.dagger:dagger:${LibVersions.dagger}"
         const val daggerCompiler = "com.google.dagger:dagger-compiler:${LibVersions.dagger}"
     }
-
     object Hilt {
-        const val hiltAndroid = "com.google.dagger:hilt-android:${LibVersions.hilt}"
-        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${LibVersions.hilt}"
-        const val hiltTesting = "com.google.dagger:hilt-android-testing:${LibVersions.hilt}"
+        const val hiltAndroid = "com.google.dagger:hilt-android:${LibVersions.hilt}" //
+        const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${LibVersions.hilt}" //
+        const val hiltCompiler = "com.google.dagger:hilt-compiler:${LibVersions.hilt}" //
+
+        // For instrumented tests.
+        const val daggerHiltAndroidTestImpl = "com.google.dagger:hilt-android-testing:${LibVersions.hilt}"
+        const val daggerHiltAndroidTestKapt = "com.google.dagger:hilt-android-compiler:${LibVersions.hilt}"
     }
 
     object GoogleMaps {

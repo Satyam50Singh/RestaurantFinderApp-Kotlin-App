@@ -27,7 +27,7 @@ android {
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_19
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -53,13 +53,23 @@ dependencies {
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
 
-    // Dagger
-    implementation(Libraries.Dagger.dagger)
-    kapt(Libraries.Dagger.daggerCompiler)
+    // Jetpack Compose
+    implementation(platform(Deps.composeBom))
+    implementation(Deps.ui)
+    implementation(Deps.uiGraphics)
+    implementation(Deps.uiToolingPreview)
+    implementation(Deps.material3)
+    androidTestImplementation(platform(Deps.composeBom))
+    androidTestImplementation(AndroidTestImplementation.uiTestJunit4)
+    debugImplementation(DebugImplementation.uiTestManifest)
+    debugImplementation(DebugImplementation.uiTooling)
+
+    // Jetpack Compose Navigation
+    implementation(Libraries.JetpackNavigation.navigationUiKtx)
+    implementation(Deps.navigationCompose)
 
     // Hilt
     implementation(Libraries.Hilt.hiltAndroid)
+    kapt(Libraries.Hilt.hiltAndroidCompiler)
     kapt(Libraries.Hilt.hiltCompiler)
-    androidTestImplementation(Libraries.Hilt.hiltTesting)
-
 }

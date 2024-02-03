@@ -35,6 +35,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    hilt {
+        enableAggregatingTask = true
+    }
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -52,6 +55,11 @@ android {
 }
 
 dependencies {
+    // include other modules
+    implementation(project(":common:utils"))
+    implementation(project(":dashboard:data"))
+    implementation(project(":dashboard:presentation"))
+
     implementation(Deps.core)
     implementation(Deps.lifecycleRuntime)
     implementation(Deps.activityCompose)
@@ -60,6 +68,8 @@ dependencies {
     implementation(Deps.uiGraphics)
     implementation(Deps.uiToolingPreview)
     implementation(Deps.material3)
+    implementation(Deps.navigationCompose)
+
     testImplementation(TestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
@@ -85,14 +95,10 @@ dependencies {
     // ViewModel
     implementation(Libraries.ViewModel.viewModel)
 
-    // Dagger
-    implementation(Libraries.Dagger.dagger)
-    kapt(Libraries.Dagger.daggerCompiler)
-
     // Hilt
     implementation(Libraries.Hilt.hiltAndroid)
+    kapt(Libraries.Hilt.hiltAndroidCompiler)
     kapt(Libraries.Hilt.hiltCompiler)
-    androidTestImplementation(Libraries.Hilt.hiltTesting)
 
     // Google Maps
     implementation(Libraries.GoogleMaps.maps)
