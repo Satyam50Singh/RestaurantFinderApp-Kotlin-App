@@ -43,14 +43,15 @@ dependencies {
     androidTestImplementation(AndroidTestImplementation.junit)
     androidTestImplementation(AndroidTestImplementation.espresso)
 
-    // Dagger
-    implementation(Libraries.Dagger.dagger)
-    kapt(Libraries.Dagger.daggerCompiler)
+//    // Dagger
+//    implementation(Libraries.Dagger.dagger)
+//    kapt(Libraries.Dagger.daggerCompiler)
 
     // Hilt
     implementation(Libraries.Hilt.hiltAndroid)
+    kapt(Libraries.Hilt.hiltAndroidCompiler)
     kapt(Libraries.Hilt.hiltCompiler)
-    androidTestImplementation(Libraries.Hilt.hiltTesting)
+//    androidTestImplementation(Libraries.Hilt.hiltTesting)
 
     // Jetpack Navigation
     implementation(Libraries.JetpackNavigation.navigationFragmentKtx)

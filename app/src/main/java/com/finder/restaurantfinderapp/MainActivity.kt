@@ -10,37 +10,34 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.finder.restaurantfinderapp.navigation.MainNavigation
+import com.finder.restaurantfinderapp.navigation.NavigationProvider
 import com.finder.restaurantfinderapp.ui.theme.RestaurantFinderAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var navigationProvider: NavigationProvider
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             RestaurantFinderAppTheme {
+                val navHostController = rememberNavController()
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MainNavigation(
+                        navHostController = navHostController,
+                        navigationProvider = navigationProvider
+                    )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    RestaurantFinderAppTheme {
-        Greeting("Android")
     }
 }

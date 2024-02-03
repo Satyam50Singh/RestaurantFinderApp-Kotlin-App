@@ -52,27 +52,39 @@ android {
 }
 
 dependencies {
-    implementation(Deps.core)
-    implementation(Deps.lifecycleRuntime)
-    implementation(Deps.activityCompose)
-    implementation(platform(Deps.composeBom))
-    implementation(Deps.ui)
+
+    // Include other modules
+    implementation(project(":common:utils"))
+    implementation(project(":location:data"))
+    implementation(project(":location:domain"))
+    implementation(project(":location:presentation"))
+    implementation(project(":dashboard:data"))
+    implementation(project(":dashboard:presentation"))
+
+    implementation(Deps.core) //
+    implementation(Deps.appCompat) //
+    implementation(Deps.androidMaterial) //
+    implementation(Libraries.CoroutineLifecycleScope.lifecycleRuntime)
+    implementation(Libraries.CoroutineLifecycleScope.lifecycleViewModel)
+    implementation(Deps.activityCompose) //
+    implementation(platform(Deps.composeBom)) //
+    implementation(Deps.ui) //
     implementation(Deps.uiGraphics)
     implementation(Deps.uiToolingPreview)
     implementation(Deps.material3)
-    testImplementation(TestImplementation.junit)
-    androidTestImplementation(AndroidTestImplementation.junit)
-    androidTestImplementation(AndroidTestImplementation.espresso)
+    implementation(Deps.navigationCompose)
+    testImplementation(TestImplementation.junit) //
+    androidTestImplementation(AndroidTestImplementation.junit) //
+    androidTestImplementation(AndroidTestImplementation.espresso) //
     androidTestImplementation(platform(Deps.composeBom))
-    androidTestImplementation(AndroidTestImplementation.uiTestJunit4)
     debugImplementation(DebugImplementation.uiTestManifest)
-    debugImplementation(DebugImplementation.uiTooling)
+    debugImplementation(DebugImplementation.uiTooling) //
 
     // Retrofit with Gson converter
-    implementation(Libraries.Retrofit.retrofit)
-    implementation(Libraries.Retrofit.gsonConverter)
-    implementation(Libraries.Retrofit.okhttp)
-    implementation(Libraries.Retrofit.loggingInterceptor)
+//    implementation(Libraries.Retrofit.retrofit)
+//    implementation(Libraries.Retrofit.gsonConverter)
+//    implementation(platform(Libraries.Retrofit.okhttpBom))
+//    implementation(Libraries.Retrofit.okhttp)
 
     // Coroutines
     implementation(Libraries.Coroutines.core)
@@ -80,19 +92,12 @@ dependencies {
 
     // Glide
     implementation(Libraries.Glide.glide)
-    kapt(Libraries.Glide.glideCompiler)
-
-    // ViewModel
-    implementation(Libraries.ViewModel.viewModel)
-
-    // Dagger
-    implementation(Libraries.Dagger.dagger)
-    kapt(Libraries.Dagger.daggerCompiler)
+    kapt(Libraries.Glide.glideCompilerAnnotationProcessor)
 
     // Hilt
     implementation(Libraries.Hilt.hiltAndroid)
+    kapt(Libraries.Hilt.hiltAndroidCompiler)
     kapt(Libraries.Hilt.hiltCompiler)
-    androidTestImplementation(Libraries.Hilt.hiltTesting)
 
     // Google Maps
     implementation(Libraries.GoogleMaps.maps)
@@ -105,21 +110,17 @@ dependencies {
     androidTestImplementation(Libraries.Mockito.mockitoAndroid)
 
     // Room Database
-    implementation(Libraries.RoomDatabase.room)
     kapt(Libraries.RoomDatabase.roomCompiler)
     implementation(Libraries.RoomDatabase.roomKtx)
 
     // MVVM Libraries
     implementation(Libraries.MVVMLibs.lifecycleExtensions)
-    implementation(Libraries.MVVMLibs.lifecycleViewModelKtx)
     implementation(Libraries.MVVMLibs.lifecycleLiveDataKtx)
-    implementation(Libraries.MVVMLibs.lifecycleRuntimeKtx)
     implementation(Libraries.MVVMLibs.kotlinStdlib)
+    kapt(Libraries.MVVMLibs.lifecycleCompiler)
 
     // Jetpack Navigation
     implementation(Libraries.JetpackNavigation.navigationFragmentKtx)
     implementation(Libraries.JetpackNavigation.navigationUiKtx)
     implementation(Libraries.JetpackNavigation.navigationDynamicFeaturesFragment)
-
-
 }
